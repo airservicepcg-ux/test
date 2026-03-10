@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<input id="name" placeholder="Name">
+<br><br>
+
+<textarea id="problem" placeholder="Problem"></textarea>
+<br><br>
+
+<button onclick="send()">Send</button>
+
+<script>
+
+function send(){
+
+fetch("YOUR_WEB_APP_URL",{
+method:"POST",
+body: JSON.stringify({
+name: document.getElementById("name").value,
+problem: document.getElementById("problem").value
+})
+})
+
+.then(r=>r.json())
+.then(res=>alert("sent"))
+
+}
+
+</script>
+
+</html>
