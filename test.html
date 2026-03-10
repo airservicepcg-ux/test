@@ -13,8 +13,11 @@
 
 function send(){
 
-fetch("YOUR_WEB_APP_URL",{
+fetch("https://script.google.com/macros/s/AKfycbxDg1g9TPA7zl4GZulzinVQ7n7P8RLU6qeMyQ2I27GfOsmY2jNtX0Rqu3-KTLIK6T4W/exec",{
 method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
 body: JSON.stringify({
 name: document.getElementById("name").value,
 problem: document.getElementById("problem").value
@@ -22,7 +25,14 @@ problem: document.getElementById("problem").value
 })
 
 .then(r=>r.json())
-.then(res=>alert("sent"))
+.then(res=>{
+alert("sent");
+})
+
+.catch(err=>{
+console.log(err);
+alert("error");
+})
 
 }
 
